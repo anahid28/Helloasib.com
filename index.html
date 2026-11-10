@@ -124,7 +124,7 @@ a:hover .roll>span,button:hover .roll>span{transform:translateY(-100%)}
 .menu__foot .socials{display:flex;gap:18px}
 
 /* HERO */
-.hero{position:relative;padding:78px 0 20px;min-height:100svh;display:flex;flex-direction:column}
+.hero{position:relative;padding:clamp(60px,9.5vh,78px) 0 clamp(12px,2.2vh,20px);min-height:100svh;display:flex;flex-direction:column}
 .hero__meta{display:flex;justify-content:space-between;align-items:flex-end;padding:0 var(--pad) 6px}
 .hero__title{display:flex;justify-content:space-between;padding:0 var(--pad);font-weight:800;text-transform:uppercase;line-height:.78;letter-spacing:-.02em;white-space:nowrap;font-size:15vw}
 .hl{position:relative;display:inline-block;overflow:hidden;cursor:default;padding-bottom:.04em}
@@ -133,15 +133,15 @@ a:hover .roll>span,button:hover .roll>span{transform:translateY(-100%)}
 .hl:hover>span{transform:translateY(-100%)}
 .hl.sp{width:.12em}
 .hw{display:inline-flex;white-space:nowrap}
-.hero__body{flex:1;display:grid;grid-template-columns:1fr auto 1fr;grid-template-rows:1fr auto;column-gap:clamp(20px,2.6vw,44px);row-gap:18px;padding:0 var(--pad);margin-top:clamp(12px,1.6vh,20px)}
+.hero__body{flex:1;display:grid;grid-template-columns:1fr auto 1fr;grid-template-rows:1fr auto;column-gap:clamp(20px,2.6vw,44px);row-gap:clamp(10px,2vh,18px);padding:0 var(--pad);margin-top:clamp(10px,1.6vh,20px)}
 .hero__now{grid-column:1;grid-row:1;align-self:start;max-width:360px;display:grid;gap:8px}
-.hero__now .cond{font-size:clamp(22px,2.2vw,36px);line-height:.92}
+.hero__now .cond{font-size:clamp(20px,min(2.2vw,3.7vh),36px);line-height:.92}
 .hero__now .cond em{font-style:normal;color:var(--gray)}
 .hi-name{font-family:var(--cond);font-weight:800;font-size:1.2em;letter-spacing:-.01em}
 .hero__mind{grid-column:1;grid-row:2;align-self:end}
-.hero__mind .cond{font-size:clamp(28px,3vw,48px)}
+.hero__mind .cond{font-size:clamp(24px,min(3vw,5vh),48px)}
 .hero__roles{grid-column:3;grid-row:1;align-self:end;justify-self:start}
-.hero__roles p{font-weight:800;font-size:clamp(16px,1.7vw,28px);letter-spacing:-.03em;text-transform:uppercase;line-height:1.12;overflow:hidden}
+.hero__roles p{font-weight:800;font-size:clamp(15px,min(1.7vw,2.9vh),28px);letter-spacing:-.03em;text-transform:uppercase;line-height:1.12;overflow:hidden}
 .hero__roles p span{display:inline-block;transition:transform .6s var(--ease)}
 .hero__roles p:hover span{transform:translateX(10px)}
 .hero__roles i{font-style:normal;color:var(--accent);margin-right:.2em}
@@ -156,11 +156,12 @@ a:hover .roll>span,button:hover .roll>span{transform:translateY(-100%)}
 .hero__chip{position:absolute;left:0;top:0;padding:6px 10px;border-radius:30px;background:var(--bg);color:var(--ink);font-family:var(--mono);font-size:11px;text-transform:uppercase;white-space:nowrap;pointer-events:none;opacity:0;transform:translate(var(--cx,0),var(--cy,0)) scale(.6);transition:opacity .35s,transform .1s linear;z-index:3}
 .hero__img.on .hero__chip{opacity:1;transform:translate(var(--cx,0),var(--cy,0)) scale(1)}
 .hero__img .tag{position:absolute;left:12px;bottom:10px;color:#fff;mix-blend-mode:difference;z-index:2}
-.hero__desc{grid-column:2;grid-row:2;width:0;min-width:100%;display:grid;gap:10px}
+.hero__desc{grid-column:2;grid-row:2;width:0;min-width:100%;display:grid;gap:clamp(4px,1.1vh,10px)}
+.hero__desc .mono-14{font-size:clamp(12px,1.75vh,14px)}
 .hero__based{grid-column:3;grid-row:1;align-self:start;display:flex;justify-content:space-between;font-weight:800;text-transform:uppercase;font-size:clamp(14px,1.3vw,20px);letter-spacing:-.02em}
 .hero__based span:last-child{color:var(--gray)}
 .hero__collab{grid-column:3;grid-row:2;align-self:end;justify-self:end;text-align:right;display:grid;gap:6px}
-.hero__collab .mail{font-weight:600;font-size:20px;text-transform:lowercase;justify-self:end}
+.hero__collab .mail{font-weight:600;font-size:clamp(16px,min(1.4vw,2.5vh),20px);text-transform:lowercase;justify-self:end}
 
 /* responsive */
 @media (max-width:900px){
@@ -171,6 +172,7 @@ a:hover .roll>span,button:hover .roll>span{transform:translateY(-100%)}
   .menu__foot{grid-template-columns:1fr 1fr}
   .hero__body{grid-template-columns:1fr;grid-template-rows:none;row-gap:18px}
   .hero__body>*{grid-column:1!important;grid-row:auto!important;justify-self:start!important;text-align:left!important;align-self:start!important}
+  .hero__roles p{font-size:clamp(18px,5vw,24px)}.hero__mind .cond{font-size:clamp(30px,8vw,40px)}.hero__now .cond{font-size:clamp(22px,6vw,30px)}
   .hero__now{order:1}.hero__img{order:2;height:auto;width:min(80%,420px);justify-self:center!important}.hero__desc{order:3;width:auto}.hero__roles{order:4}.hero__based{order:5;width:100%}.hero__mind{order:6}.hero__collab{order:7}.hero__collab .mail{justify-self:start}
 }
 @media (max-width:520px){
@@ -283,9 +285,25 @@ ht.innerHTML=words.map(w=>`<span class="hw" aria-hidden="true">${[...w].map(c=>`
 function fitTitle(){ht.style.fontSize='100px';const cs=getComputedStyle(ht);const avail=ht.clientWidth-parseFloat(cs.paddingLeft)-parseFloat(cs.paddingRight);const hw=$$('.hw',ht);
   const w=innerWidth>900?[...ht.children].reduce((a,e)=>a+e.offsetWidth,0):Math.max(...hw.map(e=>e.offsetWidth));
   ht.style.fontSize=(100*avail/w*(innerWidth>900?.97:.99))+'px';}
-fitTitle();
-addEventListener('resize',fitTitle);
-document.fonts&&document.fonts.ready.then(fitTitle);
+/* fit the hero to the screen height: photo grows or shrinks so nothing is cut at the bottom */
+const hero=$('#hero'),himg=$('#heroImg');
+function fitHero(){
+  if(innerWidth<=900){himg.style.height='';return;}
+  hero.style.minHeight='0';
+  let h=himg.getBoundingClientRect().height||400;
+  for(let k=0;k<4;k++){
+    himg.style.height=h+'px';
+    const slack=innerHeight-hero.offsetHeight;
+    if(Math.abs(slack)<2)break;
+    h=Math.max(200,Math.min(920,h+slack-1));
+  }
+  hero.style.minHeight='';
+}
+function fitAll(){fitTitle();fitHero();}
+fitAll();
+let rz;addEventListener('resize',()=>{cancelAnimationFrame(rz);rz=requestAnimationFrame(fitAll);});
+document.fonts&&document.fonts.ready.then(fitAll);
+addEventListener('load',fitAll);
 
 /* scramble */
 const CH='ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/#*+';
